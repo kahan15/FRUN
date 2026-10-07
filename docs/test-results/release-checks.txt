@@ -1,0 +1,10 @@
+test_api_root_and_document_paths (test_release.ReleaseTests) ... ok
+test_rejects_insecure_or_credential_urls (test_release.ReleaseTests) ... ok
+test_rejects_private_and_placeholder_hosts (test_release.ReleaseTests) ... ok
+test_sdk_and_configuration_requirements (test_release.ReleaseTests) ... ok
+test_xcconfig_url_escape (test_release.ReleaseTests) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.002s
+
+OK

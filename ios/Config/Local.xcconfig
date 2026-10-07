@@ -1,0 +1,9 @@
+// Simulator default. Use the laptop's LAN address in the app on a physical iPhone.
+API_BASE_URL = http:/$()/localhost:8000
+APP_BUNDLE_ID = com.territoryrun.local
+APPLE_TEAM_ID =
+PUSH_ENABLED = NO
+
+// Public HTTPS pages are required before Release builds.
+PRIVACY_POLICY_URL =
+SUPPORT_URL =

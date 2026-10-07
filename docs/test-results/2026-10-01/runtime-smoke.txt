@@ -1,0 +1,124 @@
+ Image territory-run-smoke-1790886101-59013-api Building 
+ Image territory-run-smoke-1790886101-59013-migrate Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.21kB done
+#1 DONE 0.0s
+
+#2 [api internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.04kB done
+#2 DONE 0.0s
+
+#3 [api internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 0.1s
+
+#4 [api internal] load .dockerignore
+#4 transferring context: 120B done
+#4 DONE 0.0s
+
+#5 [migrate internal] load build context
+#5 transferring context: 3.36kB done
+#5 DONE 0.0s
+
+#6 [api builder 1/4] FROM docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f
+#6 resolve docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f 0.0s done
+#6 DONE 0.0s
+
+#7 [api runtime 7/8] COPY --chown=runner:runner migrations ./migrations
+#7 CACHED
+
+#8 [api runtime 5/8] RUN pip install --no-cache-dir --no-index --find-links=/wheels -r requirements.lock     && rm -rf /wheels && useradd --create-home --uid 10001 runner
+#8 CACHED
+
+#9 [api builder 4/4] RUN pip wheel --no-cache-dir --wheel-dir /wheels -r requirements.lock
+#9 CACHED
+
+#10 [api runtime 4/8] COPY requirements.lock .
+#10 CACHED
+
+#11 [api builder 2/4] WORKDIR /build
+#11 CACHED
+
+#12 [api builder 3/4] COPY requirements.lock .
+#12 CACHED
+
+#13 [api runtime 3/8] COPY --from=builder /wheels /wheels
+#13 CACHED
+
+#14 [api runtime 2/8] WORKDIR /app
+#14 CACHED
+
+#15 [api runtime 6/8] COPY --chown=runner:runner app ./app
+#15 CACHED
+
+#16 [api runtime 8/8] COPY --chown=runner:runner alembic.ini .
+#16 CACHED
+
+#17 [migrate] exporting to image
+#17 exporting layers done
+#17 exporting manifest sha256:61a5bc4c3033ba29dcf6e37f77f056bcf490b1bf4ab6d857a249a8d13b5c49c1 done
+#17 exporting config sha256:715d3f54276ad545dc9de92214542154597635e0bddebb5bdab8da81ba63f142 done
+#17 exporting attestation manifest sha256:05a5613b61d84336a43448f1f7925b79fb68708321dfe8ddca014777fccd8e5d 0.0s done
+#17 exporting manifest list sha256:42d187736aada0f997a5c31e35c8e1776e27f974aa10adc5bf79436dfb0f73c3 0.0s done
+#17 naming to docker.io/library/territory-run-smoke-1790886101-59013-migrate:latest done
+#17 unpacking to docker.io/library/territory-run-smoke-1790886101-59013-migrate:latest 0.0s done
+#17 DONE 0.1s
+
+#18 [api] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:4f1c5948cb815a27e4e18de15d9430ea83acba10aeba96b7b40d90272a0bab05 done
+#18 exporting config sha256:5ce0927a35b21ccc119c979e789c59309b04cab2f23d48c62c375dbc7a91bddf done
+#18 exporting attestation manifest sha256:70bc0f9e65e32e4355c36385043eff8831d27b03ad5a2e68bd5df3e19b0c395b 0.0s done
+#18 exporting manifest list sha256:c9fbe00e2c37d9ebfdb387fa7535eed5d67041ce509bf3ab5026dcca04bd2079 0.0s done
+#18 naming to docker.io/library/territory-run-smoke-1790886101-59013-api:latest done
+#18 unpacking to docker.io/library/territory-run-smoke-1790886101-59013-api:latest 0.0s done
+#18 DONE 0.1s
+
+#19 [api] resolving provenance for metadata file
+#19 DONE 0.0s
+
+#20 [migrate] resolving provenance for metadata file
+#20 DONE 0.0s
+ Image territory-run-smoke-1790886101-59013-migrate Built 
+ Image territory-run-smoke-1790886101-59013-api Built 
+ Network territory-run-smoke-1790886101-59013_default Creating 
+ Network territory-run-smoke-1790886101-59013_default Created 
+ Container territory-run-smoke-1790886101-59013-test-db-1 Creating 
+ Container territory-run-smoke-1790886101-59013-test-db-1 Created 
+ Container territory-run-smoke-1790886101-59013-migrate-1 Creating 
+ Container territory-run-smoke-1790886101-59013-migrate-1 Created 
+ Container territory-run-smoke-1790886101-59013-api-1 Creating 
+ Container territory-run-smoke-1790886101-59013-api-1 Created 
+ Container territory-run-smoke-1790886101-59013-test-db-1 Starting 
+ Container territory-run-smoke-1790886101-59013-test-db-1 Started 
+ Container territory-run-smoke-1790886101-59013-test-db-1 Waiting 
+ Container territory-run-smoke-1790886101-59013-test-db-1 Healthy 
+ Container territory-run-smoke-1790886101-59013-migrate-1 Starting 
+ Container territory-run-smoke-1790886101-59013-migrate-1 Started 
+ Container territory-run-smoke-1790886101-59013-migrate-1 Waiting 
+ Container territory-run-smoke-1790886101-59013-migrate-1 Exited 
+ Container territory-run-smoke-1790886101-59013-api-1 Starting 
+ Container territory-run-smoke-1790886101-59013-api-1 Started 
+ Container territory-run-smoke-1790886101-59013-test-db-1 Waiting 
+ Container territory-run-smoke-1790886101-59013-migrate-1 Waiting 
+ Container territory-run-smoke-1790886101-59013-api-1 Waiting 
+ Container territory-run-smoke-1790886101-59013-migrate-1 Exited 
+ Container territory-run-smoke-1790886101-59013-test-db-1 Healthy 
+ Container territory-run-smoke-1790886101-59013-api-1 Healthy 
+PASS: unprivileged runtime, real HTTP readiness, PostGIS 3.5
+PASS: migrations, registration, persisted login, empty private map
+PASS: password guard, committed deletion receipt, all sessions revoked
+Runtime HTTP smoke checks passed.
+ Container territory-run-smoke-1790886101-59013-api-1 Stopping 
+ Container territory-run-smoke-1790886101-59013-api-1 Stopped 
+ Container territory-run-smoke-1790886101-59013-api-1 Removing 
+ Container territory-run-smoke-1790886101-59013-api-1 Removed 
+ Container territory-run-smoke-1790886101-59013-migrate-1 Stopping 
+ Container territory-run-smoke-1790886101-59013-migrate-1 Stopped 
+ Container territory-run-smoke-1790886101-59013-migrate-1 Removing 
+ Container territory-run-smoke-1790886101-59013-migrate-1 Removed 
+ Container territory-run-smoke-1790886101-59013-test-db-1 Stopping 
+ Container territory-run-smoke-1790886101-59013-test-db-1 Stopped 
+ Container territory-run-smoke-1790886101-59013-test-db-1 Removing 
+ Container territory-run-smoke-1790886101-59013-test-db-1 Removed 
+ Network territory-run-smoke-1790886101-59013_default Removing 
+ Network territory-run-smoke-1790886101-59013_default Removed 

@@ -1,0 +1,285 @@
+ Image territory-run-tests-1791145871-92774-test Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 640B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.14kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 0.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 120B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 43.54kB 0.0s done
+#5 DONE 0.0s
+
+#6 [builder 1/4] FROM docker.io/library/python:3.12-slim@sha256:02108f5d322dd89f1c9e552442c25acb0543dfdbc455693a5599624f20d9155d
+#6 resolve docker.io/library/python:3.12-slim@sha256:02108f5d322dd89f1c9e552442c25acb0543dfdbc455693a5599624f20d9155d 0.0s done
+#6 DONE 0.0s
+
+#7 [builder 3/4] COPY requirements.lock .
+#7 CACHED
+
+#8 [builder 4/4] RUN pip wheel --no-cache-dir --wheel-dir /wheels -r requirements.lock
+#8 CACHED
+
+#9 [runtime 4/8] COPY requirements.lock .
+#9 CACHED
+
+#10 [runtime 2/8] WORKDIR /app
+#10 CACHED
+
+#11 [builder 2/4] WORKDIR /build
+#11 CACHED
+
+#12 [runtime 3/8] COPY --from=builder /wheels /wheels
+#12 CACHED
+
+#13 [runtime 5/8] RUN pip install --no-cache-dir --no-index --find-links=/wheels -r requirements.lock     && rm -rf /wheels && useradd --create-home --uid 10001 runner
+#13 CACHED
+
+#14 [runtime 6/8] COPY --chown=runner:runner app ./app
+#14 DONE 0.0s
+
+#15 [runtime 7/8] COPY --chown=runner:runner migrations ./migrations
+#15 DONE 0.0s
+
+#16 [runtime 8/8] COPY --chown=runner:runner alembic.ini .
+#16 DONE 0.0s
+
+#17 [test 1/4] COPY requirements-dev.lock .
+#17 DONE 0.0s
+
+#18 [test 2/4] RUN pip install --no-cache-dir -r requirements-dev.lock
+#18 1.046 Requirement already satisfied: alembic==1.20.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 3)) (1.20.0)
+#18 1.046 Requirement already satisfied: annotated-doc==0.0.5 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 5)) (0.0.5)
+#18 1.046 Requirement already satisfied: annotated-types==0.8.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 7)) (0.8.0)
+#18 1.047 Requirement already satisfied: anyio==4.15.1 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 9)) (4.15.1)
+#18 1.047 Requirement already satisfied: argon2-cffi==25.1.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 14)) (25.1.0)
+#18 1.047 Requirement already satisfied: argon2-cffi-bindings==26.1.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 16)) (26.1.0)
+#18 1.047 Requirement already satisfied: certifi==2026.7.22 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 18)) (2026.7.22)
+#18 1.048 Requirement already satisfied: cffi==2.1.1 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 23)) (2.1.1)
+#18 1.048 Requirement already satisfied: click==8.5.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 27)) (8.5.0)
+#18 1.048 Requirement already satisfied: cryptography==50.0.1 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 29)) (50.0.1)
+#18 1.049 Requirement already satisfied: dnspython==2.8.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 31)) (2.8.0)
+#18 1.049 Requirement already satisfied: email-validator==2.3.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 33)) (2.3.0)
+#18 1.050 Requirement already satisfied: fastapi==0.141.1 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 35)) (0.141.1)
+#18 1.050 Requirement already satisfied: greenlet==3.5.5 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 37)) (3.5.5)
+#18 1.050 Requirement already satisfied: h11==0.16.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 39)) (0.16.0)
+#18 1.050 Requirement already satisfied: h2==4.4.1 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 43)) (4.4.1)
+#18 1.051 Requirement already satisfied: hpack==4.2.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 45)) (4.2.0)
+#18 1.051 Requirement already satisfied: httpcore==1.0.9 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 47)) (1.0.9)
+#18 1.051 Requirement already satisfied: httptools==0.8.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 49)) (0.8.0)
+#18 1.052 Requirement already satisfied: httpx==0.28.1 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 51)) (0.28.1)
+#18 1.052 Requirement already satisfied: hyperframe==6.1.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 53)) (6.1.0)
+#18 1.052 Requirement already satisfied: idna==3.19 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 55)) (3.19)
+#18 1.208 Collecting iniconfig==2.3.0 (from -r requirements-dev.lock (line 60))
+#18 1.382   Downloading iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+#18 1.401 Requirement already satisfied: mako==1.4.1 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 62)) (1.4.1)
+#18 1.401 Requirement already satisfied: markupsafe==3.0.3 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 64)) (3.0.3)
+#18 1.401 Requirement already satisfied: numpy==2.5.3 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 66)) (2.5.3)
+#18 1.453 Collecting packaging==26.3 (from -r requirements-dev.lock (line 68))
+#18 1.498   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#18 1.551 Collecting pluggy==1.6.0 (from -r requirements-dev.lock (line 70))
+#18 1.596   Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+#18 1.605 Requirement already satisfied: psycopg==3.3.5 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 72)) (3.3.5)
+#18 1.607 Requirement already satisfied: psycopg-binary==3.3.5 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 74)) (3.3.5)
+#18 1.608 Requirement already satisfied: pycparser==3.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 76)) (3.0)
+#18 1.608 Requirement already satisfied: pydantic==2.13.5 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 78)) (2.13.5)
+#18 1.609 Requirement already satisfied: pydantic-core==2.46.5 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 82)) (2.46.5)
+#18 1.609 Requirement already satisfied: pydantic-settings==2.15.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 84)) (2.15.0)
+#18 1.667 Collecting pygments==2.21.0 (from -r requirements-dev.lock (line 86))
+#18 1.712   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+#18 1.717 Requirement already satisfied: pyjwt==2.14.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 88)) (2.14.0)
+#18 1.718 Requirement already satisfied: pyproj==3.8.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 90)) (3.8.0)
+#18 1.793 Collecting pytest==9.1.1 (from -r requirements-dev.lock (line 92))
+#18 1.837   Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+#18 1.844 Requirement already satisfied: python-dotenv==1.2.3 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 94)) (1.2.3)
+#18 1.844 Requirement already satisfied: pyyaml==6.0.3 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 98)) (6.0.3)
+#18 2.144 Collecting ruff==0.16.7 (from -r requirements-dev.lock (line 100))
+#18 2.193   Downloading ruff-0.16.7-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (20 kB)
+#18 2.207 Requirement already satisfied: shapely==2.1.2 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 102)) (2.1.2)
+#18 2.207 Requirement already satisfied: sqlalchemy==2.0.52 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 104)) (2.0.52)
+#18 2.207 Requirement already satisfied: starlette==1.6.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 108)) (1.6.0)
+#18 2.208 Requirement already satisfied: structlog==26.1.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 110)) (26.1.0)
+#18 2.208 Requirement already satisfied: typing-extensions==4.16.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 112)) (4.16.0)
+#18 2.208 Requirement already satisfied: typing-inspection==0.4.4 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 123)) (0.4.4)
+#18 2.208 Requirement already satisfied: uvicorn==0.52.4 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 128)) (0.52.4)
+#18 2.208 Requirement already satisfied: uvloop==0.22.1 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 130)) (0.22.1)
+#18 2.209 Requirement already satisfied: watchfiles==1.2.0 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 132)) (1.2.0)
+#18 2.209 Requirement already satisfied: websockets==17.1 in /usr/local/lib/python3.12/site-packages (from -r requirements-dev.lock (line 134)) (17.1)
+#18 2.317 Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+#18 2.367 Downloading packaging-26.3-py3-none-any.whl (129 kB)
+#18 2.467 Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+#18 2.516 Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+#18 2.669    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 10.2 MB/s eta 0:00:00
+#18 2.717 Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+#18 2.781 Downloading ruff-0.16.7-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (10.0 MB)
+#18 3.109    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 30.1 MB/s eta 0:00:00
+#18 3.145 Installing collected packages: ruff, pygments, pluggy, packaging, iniconfig, pytest
+#18 4.000 Successfully installed iniconfig-2.3.0 packaging-26.3 pluggy-1.6.0 pygments-2.21.0 pytest-9.1.1 ruff-0.16.7
+#18 4.000 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#18 4.239 
+#18 4.239 [notice] A new release of pip is available: 25.0.1 -> 26.2.1
+#18 4.239 [notice] To update, run: pip install --upgrade pip
+#18 DONE 4.4s
+
+#19 [test 3/4] COPY --chown=runner:runner tests ./tests
+#19 DONE 0.0s
+
+#20 [test 4/4] COPY --chown=runner:runner pyproject.toml .
+#20 DONE 0.0s
+
+#21 exporting to image
+#21 exporting layers
+#21 exporting layers 0.9s done
+#21 exporting manifest sha256:3f10595f1947d4a60a044a12ef4716a1ab4320f23ed5d0381c210807259b2562 done
+#21 exporting config sha256:c769de4c4b2f95f541870ca70cd4c8f154ad590107859695412a90576b00b5d6 done
+#21 exporting attestation manifest sha256:4be31da0e334dc8b7de19898dd80240d20682313c9a52ddd81835b75c2bfe432 done
+#21 exporting manifest list sha256:09691b1ec7dc7cb95923867f394780fb7ea51d80f8fc07df53d0b77f04451f23 done
+#21 naming to docker.io/library/territory-run-tests-1791145871-92774-test:latest done
+#21 unpacking to docker.io/library/territory-run-tests-1791145871-92774-test:latest
+#21 unpacking to docker.io/library/territory-run-tests-1791145871-92774-test:latest 0.2s done
+#21 DONE 1.2s
+
+#22 resolving provenance for metadata file
+#22 DONE 0.0s
+ Image territory-run-tests-1791145871-92774-test Built 
+ Network territory-run-tests-1791145871-92774_default Creating 
+ Network territory-run-tests-1791145871-92774_default Created 
+ Container territory-run-tests-1791145871-92774-test-db-1 Creating 
+ Container territory-run-tests-1791145871-92774-test-db-1 Created 
+ Container territory-run-tests-1791145871-92774-test-1 Creating 
+ Container territory-run-tests-1791145871-92774-test-1 Created 
+Attaching to test-1, test-db-1
+ Container territory-run-tests-1791145871-92774-test-db-1 Starting 
+ Container territory-run-tests-1791145871-92774-test-db-1 Started 
+ Container territory-run-tests-1791145871-92774-test-db-1 Waiting 
+test-db-1  | The files belonging to this database system will be owned by user "postgres".
+test-db-1  | This user must also own the server process.
+test-db-1  | 
+test-db-1  | The database cluster will be initialized with locale "en_US.utf8".
+test-db-1  | The default database encoding has accordingly been set to "UTF8".
+test-db-1  | The default text search configuration will be set to "english".
+test-db-1  | 
+test-db-1  | Data page checksums are disabled.
+test-db-1  | 
+test-db-1  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+test-db-1  | creating subdirectories ... ok
+test-db-1  | selecting dynamic shared memory implementation ... posix
+test-db-1  | selecting default max_connections ... 100
+test-db-1  | selecting default shared_buffers ... 128MB
+test-db-1  | selecting default time zone ... Etc/UTC
+test-db-1  | creating configuration files ... ok
+test-db-1  | running bootstrap script ... ok
+test-db-1  | performing post-bootstrap initialization ... ok
+test-db-1  | syncing data to disk ... ok
+test-db-1  | 
+test-db-1  | initdb: warning: enabling "trust" authentication for local connections
+test-db-1  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+test-db-1  | 
+test-db-1  | Success. You can now start the database server using:
+test-db-1  | 
+test-db-1  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+test-db-1  | 
+test-db-1  | waiting for server to start....2026-10-04 20:31:20.347 UTC [51] LOG:  starting PostgreSQL 16.9 (Debian 16.9-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+test-db-1  | 2026-10-04 20:31:20.349 UTC [51] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+test-db-1  | 2026-10-04 20:31:20.355 UTC [54] LOG:  database system was shut down at 2026-10-04 20:31:20 UTC
+test-db-1  | 2026-10-04 20:31:20.364 UTC [51] LOG:  database system is ready to accept connections
+test-db-1  |  done
+test-db-1  | server started
+test-db-1  | CREATE DATABASE
+test-db-1  | 
+test-db-1  | 
+test-db-1  | /usr/local/bin/docker-entrypoint.sh: sourcing /docker-entrypoint-initdb.d/10_postgis.sh
+test-db-1  | CREATE DATABASE
+test-db-1  | Loading PostGIS extensions into template_postgis
+test-db-1  | CREATE EXTENSION
+test-db-1  | CREATE EXTENSION
+test-db-1  | You are now connected to database "template_postgis" as user "territory".
+test-db-1  | DO
+test-db-1  | Loading PostGIS extensions into territory_test
+test-db-1  | CREATE EXTENSION
+test-db-1  | CREATE EXTENSION
+test-db-1  | You are now connected to database "territory_test" as user "territory".
+test-db-1  | DO
+test-db-1  | 
+test-db-1  | 2026-10-04 20:31:23.337 UTC [51] LOG:  received fast shutdown request
+test-db-1  | 2026-10-04 20:31:23.337 UTC [51] LOG:  aborting any active transactions
+test-db-1  | waiting for server to shut down....2026-10-04 20:31:23.347 UTC [51] LOG:  background worker "logical replication launcher" (PID 57) exited with exit code 1
+test-db-1  | 2026-10-04 20:31:23.348 UTC [52] LOG:  shutting down
+test-db-1  | 2026-10-04 20:31:23.349 UTC [52] LOG:  checkpoint starting: shutdown immediate
+test-db-1  | 2026-10-04 20:31:23.407 UTC [52] LOG:  checkpoint complete: wrote 4459 buffers (27.2%); 0 WAL file(s) added, 0 removed, 2 recycled; write=0.052 s, sync=0.003 s, total=0.058 s; sync files=963, longest=0.001 s, average=0.001 s; distance=34802 kB, estimate=34802 kB; lsn=0/36E3420, redo lsn=0/36E3420
+test-db-1  | 2026-10-04 20:31:23.416 UTC [51] LOG:  database system is shut down
+test-db-1  |  done
+test-db-1  | server stopped
+test-db-1  | 
+test-db-1  | PostgreSQL init process complete; ready for start up.
+test-db-1  | 
+test-db-1  | 2026-10-04 20:31:23.507 UTC [1] LOG:  starting PostgreSQL 16.9 (Debian 16.9-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+test-db-1  | 2026-10-04 20:31:23.510 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+test-db-1  | 2026-10-04 20:31:23.510 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+test-db-1  | 2026-10-04 20:31:23.513 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+test-db-1  | 2026-10-04 20:31:23.521 UTC [89] LOG:  database system was shut down at 2026-10-04 20:31:23 UTC
+test-db-1  | 2026-10-04 20:31:23.532 UTC [1] LOG:  database system is ready to accept connections
+ Container territory-run-tests-1791145871-92774-test-db-1 Healthy 
+ Container territory-run-tests-1791145871-92774-test-1 Starting 
+ Container territory-run-tests-1791145871-92774-test-1 Started 
+test-db-1  | 2026-10-04 20:31:29.454 UTC [113] ERROR:  canceling statement due to statement timeout
+test-db-1  | 2026-10-04 20:31:29.454 UTC [113] STATEMENT:  SELECT pg_sleep(0.1)
+test-1     | ........................................................................ [ 80%]
+test-db-1  | 2026-10-04 20:31:31.355 UTC [112] ERROR:  Unresolved ownership overlap outside a contest
+test-db-1  | 2026-10-04 20:31:31.355 UTC [112] CONTEXT:  PL/pgSQL function assert_no_territory_overlap() line 18 at RAISE
+test-db-1  | 2026-10-04 20:31:31.355 UTC [112] STATEMENT:  SET CONSTRAINTS territory_overlap_guard IMMEDIATE
+test-db-1  | 2026-10-04 20:31:31.357 UTC [112] ERROR:  Unresolved ownership overlap outside a contest
+test-db-1  | 2026-10-04 20:31:31.357 UTC [112] CONTEXT:  PL/pgSQL function assert_no_territory_overlap() line 18 at RAISE
+test-db-1  | 2026-10-04 20:31:31.357 UTC [112] STATEMENT:  SET CONSTRAINTS territory_overlap_guard IMMEDIATE
+test-1     | ..................                                                       [100%]
+test-1     | =============================== warnings summary ===============================
+test-1     | ../usr/local/lib/python3.12/site-packages/fastapi/testclient.py:1
+test-1     |   /usr/local/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+test-1     |     from starlette.testclient import TestClient as TestClient  # noqa
+test-1     | 
+test-1     | ../usr/local/lib/python3.12/site-packages/starlette/testclient.py:53
+test-1     |   /usr/local/lib/python3.12/site-packages/starlette/testclient.py:53: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+test-1     |     _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+test-1     | 
+test-1     | tests/test_integration.py::test_stranger_independence_and_map_scope
+test-1     | tests/test_integration.py::test_stranger_independence_and_map_scope
+test-1     | tests/test_integration.py::test_stranger_independence_and_map_scope
+test-1     |   /usr/local/lib/python3.12/site-packages/alembic/config.py:604: DeprecationWarning: No path_separator found in configuration; falling back to legacy splitting on spaces, commas, and colons for prepend_sys_path.  Consider adding path_separator=os to Alembic config.
+test-1     |     util.warn_deprecated(
+test-1     | 
+test-1     | -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+test-1     | 90 passed, 5 warnings in 6.12s
+
+test-1 exited with code 0
+ Compose Stopping Aborting on container exit...
+ Container territory-run-tests-1791145871-92774-test-1 Stopping 
+ Container territory-run-tests-1791145871-92774-test-1 Stopped 
+ Container territory-run-tests-1791145871-92774-test-db-1 Stopping 
+test-db-1  | 2026-10-04 20:31:33.183 UTC [1] LOG:  received fast shutdown request
+test-db-1  | 2026-10-04 20:31:33.184 UTC [1] LOG:  aborting any active transactions
+test-db-1  | 2026-10-04 20:31:33.193 UTC [1] LOG:  background worker "logical replication launcher" (PID 92) exited with exit code 1
+test-db-1  | 2026-10-04 20:31:33.194 UTC [87] LOG:  shutting down
+test-db-1  | 2026-10-04 20:31:33.195 UTC [87] LOG:  checkpoint starting: shutdown immediate
+test-db-1  | 2026-10-04 20:31:33.209 UTC [87] LOG:  checkpoint complete: wrote 274 buffers (1.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.009 s, sync=0.001 s, total=0.014 s; sync files=172, longest=0.001 s, average=0.001 s; distance=1438 kB, estimate=1438 kB; lsn=0/384AC80, redo lsn=0/384AC80
+test-db-1  | 2026-10-04 20:31:33.214 UTC [1] LOG:  database system is shut down
+ Container territory-run-tests-1791145871-92774-test-db-1 Stopped 
+
+test-db-1 exited with code 0
+ Container territory-run-tests-1791145871-92774-test-1 Stopping 
+ Container territory-run-tests-1791145871-92774-test-1 Stopped 
+ Container territory-run-tests-1791145871-92774-test-1 Removing 
+ Container territory-run-tests-1791145871-92774-test-1 Removed 
+ Container territory-run-tests-1791145871-92774-test-db-1 Stopping 
+ Container territory-run-tests-1791145871-92774-test-db-1 Stopped 
+ Container territory-run-tests-1791145871-92774-test-db-1 Removing 
+ Container territory-run-tests-1791145871-92774-test-db-1 Removed 
+ Network territory-run-tests-1791145871-92774_default Removing 
+ Network territory-run-tests-1791145871-92774_default Removed 

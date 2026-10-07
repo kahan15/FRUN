@@ -1,0 +1,25 @@
+name: territory-run-tests
+services:
+  test-db:
+    image: postgis/postgis:16-3.5
+    platform: linux/amd64
+    environment:
+      POSTGRES_USER: territory
+      POSTGRES_PASSWORD: disposable-test-password
+      POSTGRES_DB: territory_test
+    tmpfs: [/var/lib/postgresql/data]
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -h 127.0.0.1 -U territory -d territory_test']
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  test:
+    build:
+      context: ./backend
+      target: test
+    environment:
+      JWT_SECRET: test-only-secret-that-is-never-used-in-production
+      DATABASE_URL: postgresql+psycopg://territory:disposable-test-password@test-db:5432/territory_test
+      TEST_DATABASE_URL: postgresql+psycopg://territory:disposable-test-password@test-db:5432/territory_test
+    depends_on:
+      test-db: {condition: service_healthy}

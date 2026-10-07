@@ -1,0 +1,87 @@
+{
+  "verified_date": "2026-10-03",
+  "source": "Xcode xcresult build/action/test records",
+  "xcode": "26.3 (17C529)",
+  "build_status": "succeeded",
+  "test_status": "succeeded",
+  "test_count": 18,
+  "build_issues": {},
+  "test_issues": {},
+  "destination": "iPhone 17",
+  "simulator_os": "26.3.1 (23D8133)",
+  "sdk": "Simulator - iOS 26.2",
+  "tests": [
+    {
+      "test": "APIClientTests/testSimultaneousUnauthorizedRequestsShareOneRefresh()",
+      "status": "Success"
+    },
+    {
+      "test": "AccountDeletionTests/testCorruptIntentFailsClosed()",
+      "status": "Success"
+    },
+    {
+      "test": "AccountDeletionTests/testRestartAndScopedCleanupRequireServerConfirmation()",
+      "status": "Success"
+    },
+    {
+      "test": "ContractsTests/testMapPreservesCarvedHoles()",
+      "status": "Success"
+    },
+    {
+      "test": "ContractsTests/testResultMatchesBackendWireContract()",
+      "status": "Success"
+    },
+    {
+      "test": "ContractsTests/testUploadUsesServerKeysAndPreservesTimestamps()",
+      "status": "Success"
+    },
+    {
+      "test": "JournalRecoveryTests/testCorruptCompleteLineIsPreservedAndReported()",
+      "status": "Success"
+    },
+    {
+      "test": "JournalRecoveryTests/testTornFinalAppendAndRepeatedRestartPreserveTimeAndPoints()",
+      "status": "Success"
+    },
+    {
+      "test": "QueueTests/testOfflineRestartAndAcknowledgement()",
+      "status": "Success"
+    },
+    {
+      "test": "QueueTests/testSeparateAccountsNeverSharePendingRuns()",
+      "status": "Success"
+    },
+    {
+      "test": "TrackingPolicyTests/testCachedBeforeResumeFutureAndDuplicateFixesAreIgnored()",
+      "status": "Success"
+    },
+    {
+      "test": "TrackingPolicyTests/testDelayedBackgroundBatchIsPreserved()",
+      "status": "Success"
+    },
+    {
+      "test": "TrackingPolicyTests/testLongGapAndPoorAccuracyNeverConnect()",
+      "status": "Success"
+    },
+    {
+      "test": "TrackingPolicyTests/testPauseUsesNewSegmentWithoutConnecting()",
+      "status": "Success"
+    },
+    {
+      "test": "UploadRecoveryTests/testOneCorruptFileDoesNotBlockOtherRuns()",
+      "status": "Success"
+    },
+    {
+      "test": "UploadRecoveryTests/testPermanentFailurePreservesPayloadAndAllowsNextUpload()",
+      "status": "Success"
+    },
+    {
+      "test": "UploadRecoveryTests/testRetryFinishDoesNotOverwriteDurablePayload()",
+      "status": "Success"
+    },
+    {
+      "test": "UploadRecoveryTests/testWrongReceiptNeverRemovesUpload()",
+      "status": "Success"
+    }
+  ]
+}

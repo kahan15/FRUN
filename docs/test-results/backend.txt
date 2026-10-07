@@ -1,0 +1,92 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- /home/ubuntu/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/ubuntu/backend
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.15.1
+collecting ... collected 65 items
+
+tests/test_claim_rules.py::test_stranger_independent PASSED              [  1%]
+tests/test_claim_rules.py::test_cooldown PASSED                          [  3%]
+tests/test_claim_rules.py::test_partial_carving_and_notification PASSED  [  4%]
+tests/test_claim_rules.py::test_refresh_without_area_gain PASSED         [  6%]
+tests/test_claim_rules.py::test_adjacency_does_not_refresh_or_steal PASSED [  7%]
+tests/test_claim_rules.py::test_expiry_modes PASSED                      [  9%]
+tests/test_claim_rules.py::test_contest_bypasses_cooldown_only_for_subsequent_run_and_captured_slice PASSED [ 10%]
+tests/test_claim_rules.py::test_three_way_contest_counts_geographic_area_once PASSED [ 12%]
+tests/test_geometry.py::test_square PASSED                               [ 13%]
+tests/test_geometry.py::test_no_loop[points0] PASSED                     [ 15%]
+tests/test_geometry.py::test_no_loop[points1] PASSED                     [ 16%]
+tests/test_geometry.py::test_no_loop[points2] PASSED                     [ 18%]
+tests/test_geometry.py::test_figure_eight PASSED                         [ 20%]
+tests/test_geometry.py::test_lollipop PASSED                             [ 21%]
+tests/test_geometry.py::test_near_miss PASSED                            [ 23%]
+tests/test_geometry.py::test_open_lap PASSED                             [ 24%]
+tests/test_geometry.py::test_nested_loops_do_not_double_count PASSED     [ 26%]
+tests/test_geometry.py::test_pauses_cannot_close_a_fake_loop PASSED      [ 27%]
+tests/test_geometry.py::test_overlapping_segments_union PASSED           [ 29%]
+tests/test_geometry.py::test_paces[5000-1800-accepted] PASSED            [ 30%]
+tests/test_geometry.py::test_paces[5000-810-accepted] PASSED             [ 32%]
+tests/test_geometry.py::test_paces[42195-6600-rejected] PASSED           [ 33%]
+tests/test_geometry.py::test_paces[42195-12600-accepted] PASSED          [ 35%]
+tests/test_geometry.py::test_stride_flags_but_awards PASSED              [ 36%]
+tests/test_geometry.py::test_all_dropped PASSED                          [ 38%]
+tests/test_geometry.py::test_teleport PASSED                             [ 40%]
+tests/test_geometry.py::test_timestamps PASSED                           [ 41%]
+tests/test_geometry.py::test_curve_monotonic_and_separate PASSED         [ 43%]
+tests/test_geometry.py::test_supported_regions PASSED                    [ 44%]
+tests/test_geometry.py::test_low_accuracy_sample_breaks_continuity PASSED [ 46%]
+tests/test_geometry.py::test_bad_timestamp_in_discarded_point_is_still_rejected PASSED [ 47%]
+tests/test_geometry.py::test_gap_cannot_forge_closure_even_if_client_reuses_segment PASSED [ 49%]
+tests/test_geometry.py::test_extent_includes_separate_segments PASSED    [ 50%]
+tests/test_http.py::test_liveness_has_no_db_dependency PASSED            [ 52%]
+tests/test_http.py::test_error_vocabulary_and_no_password_echo PASSED    [ 53%]
+tests/test_http.py::test_auth_required_without_connecting_to_db PASSED   [ 55%]
+tests/test_http.py::test_access_token_and_hashing PASSED                 [ 56%]
+tests/test_http.py::test_body_size_limit PASSED                          [ 58%]
+tests/test_http.py::test_deletion_auth_and_validation_never_echo_password PASSED [ 60%]
+tests/test_http.py::test_request_logging_uses_templates_and_omits_private_url_data PASSED [ 61%]
+tests/test_integration.py::test_stranger_independence_and_map_scope PASSED [ 63%]
+tests/test_integration.py::test_friend_cooldown_then_partial_carve PASSED [ 64%]
+tests/test_integration.py::test_refresh_idempotency_and_cooldown_not_reset PASSED [ 66%]
+tests/test_integration.py::test_adjacent_and_expired_claims PASSED       [ 67%]
+tests/test_integration.py::test_upload_http_and_private_profile PASSED   [ 69%]
+tests/test_integration.py::test_refresh_rotation_and_logout PASSED       [ 70%]
+tests/test_integration.py::test_registration_login_logout_http PASSED    [ 72%]
+tests/test_integration.py::test_notification_failure_rolls_back_carving PASSED [ 73%]
+tests/test_integration.py::test_concurrent_new_claims_and_duplicate_uploads PASSED [ 75%]
+tests/test_integration.py::test_acceptance_preserves_contest_then_first_capture_wins_only_slice PASSED [ 76%]
+tests/test_integration.py::test_offline_run_before_acceptance_cannot_settle_even_without_protection PASSED [ 78%]
+tests/test_integration.py::test_remove_reaccept_and_third_party_privacy PASSED [ 80%]
+tests/test_integration.py::test_expiry_removes_contest_without_waiting_for_worker PASSED [ 81%]
+tests/test_integration.py::test_renewal_extends_only_captured_own_portion PASSED [ 83%]
+tests/test_integration.py::test_rejected_loop_cannot_settle_contest PASSED [ 84%]
+tests/test_integration.py::test_concurrent_contest_has_one_winner PASSED [ 86%]
+tests/test_integration.py::test_pending_request_never_grants_visibility_or_capture PASSED [ 87%]
+tests/test_integration.py::test_guard_rejects_real_same_owner_or_uncontested_friend_overlap PASSED [ 89%]
+tests/test_integration.py::test_shared_friend_can_settle_contest_but_nonfriend_land_survives PASSED [ 90%]
+tests/test_integration.py::test_delete_requires_password_and_revokes_every_session_with_recoverable_receipt PASSED [ 92%]
+tests/test_integration.py::test_delete_removes_personal_data_but_preserves_others_earned_territory PASSED [ 93%]
+tests/test_integration.py::test_delete_failure_rolls_back_data_and_receipt PASSED [ 95%]
+tests/test_integration.py::test_deleted_account_cannot_use_inflight_upload_or_friend_request PASSED [ 96%]
+tests/test_integration.py::test_deletion_receipt_cannot_delete_another_account PASSED [ 98%]
+tests/test_integration.py::test_deletion_password_attempts_are_limited PASSED [100%]
+
+=============================== warnings summary ===============================
+../venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/ubuntu/venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+../venv/lib/python3.12/site-packages/starlette/testclient.py:53
+  /home/ubuntu/venv/lib/python3.12/site-packages/starlette/testclient.py:53: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+tests/test_integration.py::test_stranger_independence_and_map_scope
+tests/test_integration.py::test_stranger_independence_and_map_scope
+tests/test_integration.py::test_stranger_independence_and_map_scope
+  /home/ubuntu/venv/lib/python3.12/site-packages/alembic/config.py:604: DeprecationWarning: No path_separator found in configuration; falling back to legacy splitting on spaces, commas, and colons for prepend_sys_path.  Consider adding path_separator=os to Alembic config.
+    util.warn_deprecated(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 65 passed, 5 warnings in 7.97s ========================

@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-03",
+  "isolated_loopback_backend": true,
+  "accepted_runner_history_rows": 2,
+  "other_rejected_rows": 1,
+  "stranger_kept_independent_full_territory": true,
+  "friend_received_one_capture_notification": true,
+  "replayed_capture_added_no_history_row": true,
+  "ui_offline_retains_cached_territory": true,
+  "ui_automatic_reconnection_restores_synced": true
+}

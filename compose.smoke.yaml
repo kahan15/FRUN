@@ -1,0 +1,23 @@
+# Layer over compose.test.yaml; no published ports, app .env, or host data mounts.
+x-runtime-test: &runtime-test
+  build:
+    context: ./backend
+    target: runtime
+  environment:
+    JWT_SECRET: test-only-secret-that-is-never-used-in-production
+    DATABASE_URL: postgresql+psycopg://territory:disposable-test-password@test-db:5432/territory_test
+services:
+  migrate:
+    <<: *runtime-test
+    command: ['alembic', 'upgrade', 'head']
+    depends_on:
+      test-db: {condition: service_healthy}
+  api:
+    <<: *runtime-test
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck:
+      test: ['CMD', 'python', '-c', "import urllib.request; urllib.request.urlopen('http://localhost:8000/health/ready', timeout=2)"]
+      interval: 2s
+      timeout: 3s
+      retries: 30

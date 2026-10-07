@@ -1,0 +1,17 @@
+.env
+.venv/
+data/
+backups/
+secrets/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+*.xcodeproj/
+DerivedData/
+*.xcuserstate
+.DS_Store
+*.egg-info/
+
+.build/
+.swiftpm/

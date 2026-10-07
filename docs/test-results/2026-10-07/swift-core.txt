@@ -1,0 +1,1 @@
+47 native Swift core checks passed

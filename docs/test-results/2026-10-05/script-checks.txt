@@ -1,0 +1,12 @@
+test_api_root_and_document_paths (test_release.ReleaseTests) ... ok
+test_rejects_insecure_or_credential_urls (test_release.ReleaseTests) ... ok
+test_rejects_private_and_placeholder_hosts (test_release.ReleaseTests) ... ok
+test_sdk_and_configuration_requirements (test_release.ReleaseTests) ... ok
+test_xcconfig_url_escape (test_release.ReleaseTests) ... ok
+test_smoke_success_and_startup_failure_clean_only_their_own_projects (test_test_runner.TestRunnerSafetyTests) ... ok
+test_success_and_failure_clean_only_their_own_projects (test_test_runner.TestRunnerSafetyTests) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.546s
+
+OK

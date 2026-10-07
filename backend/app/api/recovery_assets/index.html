@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Reset your password · Territory Run</title>
+  <script src="/password-reset.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Reset your Territory Run password</h1>
+    <p>Use at least 10 characters. After a reset, sign in again on each device. Saved runs stay on your phone.</p>
+    <form id="reset-form">
+      <p><label for="password">New password</label><br>
+        <input id="password" type="password" autocomplete="new-password" minlength="10" maxlength="128" required></p>
+      <p><label for="confirm">Confirm password</label><br>
+        <input id="confirm" type="password" autocomplete="new-password" minlength="10" maxlength="128" required></p>
+      <button id="submit" type="submit" disabled>Reset password</button>
+    </form>
+    <p id="status" role="status" aria-live="polite">Checking the link…</p>
+    <noscript>Enable JavaScript to use this recovery link.</noscript>
+  </main>
+</body>
+</html>
